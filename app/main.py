@@ -2,6 +2,9 @@ from fastapi import FastAPI, status, HTTPException, Response
 from fastapi.params import Body
 from pydantic import BaseModel
 from random import randrange
+import psycopg2
+from psycopg2.extras import RealDictCursor
+from time import sleep
 
 app = FastAPI()
 
@@ -10,7 +13,19 @@ class Post(BaseModel):
     title: str
     content: str
     published: bool = True
-    rating: int | None = None
+
+while True:
+    try:
+        conn = psycopg2.connect(host="localhost", database="fastapi", user="postgres", password="1234", cursor_factory=RealDictCursor)
+        cursor = conn.cursor()
+        print()
+        print("[INFO] --- Database connection was successfull ✅")
+        print()
+        break
+    except Exception as error:
+        print("[INFO] --- Connecting to database was failed ❌")
+        print("Error: ", error)
+        sleep(3) 
 
 
 my_posts = [{
@@ -73,3 +88,16 @@ async def delete_post(id: int):
 
     my_posts.pop(index)
     return Response(status_code=status.HTTP_204_NO_CONTENT)
+
+@app.put("/posts/{id}")
+async def update_post(id: int, post: Post):
+    index = find_post_index(id)
+    if index is None:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,
+                            detail=f"post with id: {id} does not exist")
+    
+    post_dict = post.dict()
+    post_dict["id"] = id
+    my_posts[index] = post_dict
+
+    return {"data": post_dict}
