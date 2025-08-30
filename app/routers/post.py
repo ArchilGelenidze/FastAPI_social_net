@@ -1,9 +1,8 @@
 from fastapi import FastAPI, status, HTTPException, Response, Depends, APIRouter
 from sqlalchemy.orm import Session
 from typing import List
-from .. import schemas, models
+from .. import schemas, models, oauth2
 from .. database import get_db
-
 
 
 
@@ -20,7 +19,7 @@ router = APIRouter(
 
 
 @router.get("/", response_model=List[schemas.Post])
-async def get_posts(db: Session = Depends(get_db)):
+async def get_posts(db: Session = Depends(get_db), current_user: int = Depends(oauth2.get_current_user)):
 
     # cursor.execute("""SELECT * FROM posts""")
     # posts = cursor.fetchall()
@@ -32,7 +31,7 @@ async def get_posts(db: Session = Depends(get_db)):
 
 
 @router.post("/", status_code=status.HTTP_201_CREATED, response_model=schemas.Post)
-async def create_post(post: schemas.PostCreate, db: Session = Depends(get_db)):
+async def create_post(post: schemas.PostCreate, db: Session = Depends(get_db), current_user: int = Depends(oauth2.get_current_user)):
 
     # cursor.execute("""INSERT INTO posts (title, content, published) VALUES (%s, %s, %s) RETURNING *;""",
     #                 (post.title, post.content, post.published))
@@ -68,7 +67,7 @@ async def get_post(id: int, db: Session = Depends(get_db)):
 
 
 @router.delete("/{id}", status_code=status.HTTP_204_NO_CONTENT)
-async def delete_post(id: int, db: Session = Depends(get_db)):
+async def delete_post(id: int, db: Session = Depends(get_db), current_user: int = Depends(oauth2.get_current_user)):
 
     # cursor.execute("""DELETE FROM posts WHERE id = %s RETURNING *;""", (str(id),))
     # deleted_post = cursor.fetchone()
@@ -89,7 +88,7 @@ async def delete_post(id: int, db: Session = Depends(get_db)):
 
 
 @router.put("/{id}", response_model=schemas.Post)
-async def update_post(id: int, post: schemas.PostCreate, db: Session = Depends(get_db)):
+async def update_post(id: int, post: schemas.PostCreate, db: Session = Depends(get_db), current_user: int = Depends(oauth2.get_current_user)):
     
     
     # cursor.execute(
