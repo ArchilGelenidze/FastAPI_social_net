@@ -39,7 +39,7 @@ async def create_post(post: schemas.PostCreate, db: Session = Depends(get_db), c
     # conn.commit()
 
     # new_post = models.Post(title=post.title, content=post.content, published=post.published)  # This is not efficient method
-    new_post = models.Post(**post.model_dump())                                                 # This is more efficient, we just unpack keys and values into method
+    new_post = models.Post(owner_id = current_user.id, **post.model_dump())                                                 # This is more efficient, we just unpack keys and values into method
     db.add(new_post)
     db.commit()
     db.refresh(new_post)
@@ -73,13 +73,17 @@ async def delete_post(id: int, db: Session = Depends(get_db), current_user: int 
     # deleted_post = cursor.fetchone()
     # conn.commit()
 
-    post = db.query(models.Post).filter(models.Post.id == id)
+    post_query = db.query(models.Post).filter(models.Post.id == id)
+    post = post_query.first()
     
-    if post.first() is None:
+    if post is None:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,
                             detail=f"post with id: {id} does not exist")
     
-    post.delete(synchronize_session=False)
+    if post.owner_id != current_user.id:
+        raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="Not authorized to perform requested action")
+    
+    post_query.delete(synchronize_session=False)
     db.commit()
 
     
@@ -104,6 +108,9 @@ async def update_post(id: int, post: schemas.PostCreate, db: Session = Depends(g
     if post_for_update is None:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,
                             detail=f"post with id: {id} does not exist")
+    
+    if post_for_update.owner_id != current_user.id:
+        raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="Not authorized to perform requested action")
     
     post_query.update(post.model_dump(), synchronize_session=False)
     db.commit()
