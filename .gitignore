@@ -1,10 +1,7 @@
 .venv
 poetry_env
-poetry.lock
-pyproject.toml
 __pycache__
 __init__.py
-pyproject.toml
 .env
 __pycache__/
 *.pyc
