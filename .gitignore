@@ -7,3 +7,4 @@ __pycache__/
 *.pyc
 gunicorn.service
 nginx
+docker-compose-dev.yml
