@@ -1,7 +1,6 @@
 .venv
 poetry_env
 __pycache__
-__init__.py
 .env
 __pycache__/
 *.pyc
