@@ -25,5 +25,5 @@ app.include_router(vote.router)
 
 @app.get("/")
 async def root():
-    return {"message": "Welcome"}
+    return {"message": "Website was updated via CI\CD"}
 
