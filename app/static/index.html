@@ -6,7 +6,6 @@
   <title>AG social</title>
   <meta name="description" content="Небольшой FastAPI-проект: описание, используемые технологии, ссылки на документацию и контакты." />
   <meta name="theme-color" content="#0b1220" />
-  <!-- Open Graph (потом подставишь картинку проекта) -->
   <meta property="og:title" content="FastAPI Project by Арчи" />
   <meta property="og:description" content="Стартовая страница проекта: технологии, swagger, ссылки и контакты." />
   <meta property="og:image" content="/static/img/og-image.png" />
@@ -14,161 +13,77 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <!-- ===== Header / Top bar ===== -->
   <header class="topbar">
     <div class="container topbar__inner topbar__inner--center">
-      <!-- GitHub ссылка с иконкой -->
       <a class="gh-btn" href="https://github.com/ArchilGelenidze/FastAPI_social_net" target="_blank" rel="noopener" aria-label="Open GitHub">
         <svg class="gh-btn__icon" viewBox="0 0 24 24" aria-hidden="true">
           <path d="M12 .5a12 12 0 0 0-3.79 23.4c.6.11.82-.26.82-.58v-2.03c-3.34.73-4.04-1.61-4.04-1.61-.55-1.39-1.34-1.76-1.34-1.76-1.1-.75.09-.73.09-.73 1.22.09 1.86 1.25 1.86 1.25 1.08 1.85 2.83 1.31 3.52 1 .11-.8.42-1.31.76-1.61-2.66-.3-5.46-1.33-5.46-5.93 0-1.31.47-2.38 1.24-3.22-.12-.31-.54-1.56.12-3.25 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.66 1.69.24 2.94.12 3.25.77.84 1.24 1.91 1.24 3.22 0 4.61-2.8 5.63-5.47 5.93.43.37.81 1.1.81 2.22v3.29c0 .33.22.7.83.58A12 12 0 0 0 12 .5Z"/>
         </svg>
         <span class="gh-btn__text">GitHub</span>
       </a>
-
-      <!-- (при желании можно добавить навигацию справа) -->
     </div>
   </header>
 
-  <!-- ===== Hero ===== -->
   <section class="hero">
     <div class="container hero__inner">
-      <!-- добавлен модификатор для центрирования текста и кнопки -->
       <div class="hero__text hero__text--center">
         <h1 class="hero__title">Welcome to my project</h1>
-        <p class="hero__subtitle">
-          A tiny FastAPI backend with simple docs.
-        </p>
-
-        <!-- заменили контент на одну иконку-кнопку Swagger и центрировали -->
-        <!-- index.html — подпись под кнопкой Docs -->
+        <p class="hero__subtitle">A tiny FastAPI backend with simple docs.</p>
         <div class="hero__actions hero__actions--center">
-          <a class="hero__docs" href="https://www.agsocial.site/docs" aria-label="Открыть Swagger UI">
+          <a class="hero__docs" href="https://www.agsocial.site/docs" aria-label="Open Swagger UI">
             <img src="https://cdn-icons-png.flaticon.com/512/887/887997.png" alt="Swagger" width="64" height="64" />
             <span class="hero__docs-label">Docs</span>
           </a>
         </div>
-
       </div>
 
       <div class="hero__mascot">
-        <!-- Положи сюда свою картинку маскота -->
         <img src="img/mascot.png" alt="Приветственный маскот проекта" />
       </div>
     </div>
   </section>
 
-  <!-- ===== Technologies ===== -->
   <main class="main container">
     <section class="card tech">
-      <!-- центрируем заголовок -->
       <h2 class="card__title card__title--center">Tools & Libraries</h2>
-
-      <!-- Сетка технологий: иконка + название -->
       <ul class="tech__grid">
-        <!-- ПРИМЕЧАНИЕ: положи SVG/PNG в /static/icons/*.svg и подставь пути -->
-        <li class="tech__item">
-          <img src="/static/icons/python.svg" alt="" aria-hidden="true" />
-          <span>Python</span>
-        </li>
-        <li class="tech__item">
-          <img src="/static/icons/fastapi.svg" alt="" aria-hidden="true" />
-          <span>FastAPI</span>
-        </li>
-        <li class="tech__item">
-          <img src="/static/icons/postgresql.svg" alt="" aria-hidden="true" />
-          <span>PostgreSQL</span>
-        </li>
-        <li class="tech__item">
-          <img src="/static/icons/pydantic.svg" alt="" aria-hidden="true" />
-          <span>SQLAlchemy</span>
-        </li>
-        <li class="tech__item">
-          <img src="/static/icons/sqlalchemy.svg" alt="" aria-hidden="true" />
-          <span>Alembic</span>
-        </li>
-        <li class="tech__item">
-          <img src="/static/icons/nginx.svg" alt="" aria-hidden="true" />
-          <span>Pydantic</span>
-        </li>
-        <li class="tech__item">
-          <img src="/static/icons/alembic.svg" alt="" aria-hidden="true" />
-          <span>Nginx</span>
-        </li>
-        <li class="tech__item">
-          <img src="/static/icons/pytest.svg" alt="" aria-hidden="true" />
-          <span>Uvicorn</span>
-        </li>
-        <li class="tech__item">
-          <img src="/static/icons/postman.svg" alt="" aria-hidden="true" />
-          <span>Gunicorn</span>
-        </li>
-        <li class="tech__item">
-          <img src="/static/icons/docker.svg" alt="" aria-hidden="true" />
-          <span>Pytest</span>
-        </li>
-        <li class="tech__item">
-          <img src="/static/icons/docker-compose.svg" alt="" aria-hidden="true" />
-          <span>Postman</span>
-        </li>
-        <li class="tech__item">
-          <img src="/static/icons/github.svg" alt="" aria-hidden="true" />
-          <span>Docker</span>
-        </li>
-        <li class="tech__item">
-          <img src="/static/icons/github-actions.svg" alt="" aria-hidden="true" />
-          <span>Docker Compose</span>
-        </li>
-        <li class="tech__item">
-          <img src="/static/icons/ubuntu.svg" alt="" aria-hidden="true" />
-          <span>Ubuntu</span>
-        </li>
-        <li class="tech__item">
-          <img src="/static/icons/uvicorn.svg" alt="" aria-hidden="true" />
-          <span>GitHub</span>
-        </li>
-        <li class="tech__item">
-          <img src="/static/icons/gunicorn.svg" alt="" aria-hidden="true" />
-          <span>CI/CD (GitHub Actions)</span>
-        </li>
+        <li class="tech__item"><img src="icons/python.svg" alt="" aria-hidden="true" /><span>Python</span></li>
+        <li class="tech__item"><img src="icons/fastapi.svg" alt="" aria-hidden="true" /><span>FastAPI</span></li>
+        <li class="tech__item"><img src="icons/postgresql.svg" alt="" aria-hidden="true" /><span>PostgreSQL</span></li>
+        <li class="tech__item"><img src="icons/sqlAlchemy.svg" alt="" aria-hidden="true" /><span>SQLAlchemy</span></li>
+        <li class="tech__item"><img src="icons/alembic.svg" alt="" aria-hidden="true" /><span>Alembic</span></li>
+        <li class="tech__item"><img src="icons/pydantic.svg" alt="" aria-hidden="true" /><span>Pydantic</span></li>
+        <li class="tech__item"><img src="icons/nginx.svg" alt="" aria-hidden="true" /><span>Nginx</span></li>
+        <li class="tech__item"><img src="icons/uvicorn.png" alt="" aria-hidden="true" /><span>Uvicorn</span></li>
+        <li class="tech__item"><img src="icons/gunicorn.svg" alt="" aria-hidden="true" /><span>Gunicorn</span></li>
+        <li class="tech__item"><img src="icons/pytest.svg" alt="" aria-hidden="true" /><span>Pytest</span></li>
+        <li class="tech__item"><img src="icons/Postman.svg" alt="" aria-hidden="true" /><span>Postman</span></li>
+        <li class="tech__item"><img src="icons/docker.svg" alt="" aria-hidden="true" /><span>Docker</span></li>
+        <li class="tech__item"><img src="icons/compose.png" alt="" aria-hidden="true" /><span>Docker Compose</span></li>
+        <li class="tech__item"><img src="icons/ubuntu.svg" alt="" aria-hidden="true" /><span>Ubuntu</span></li>
+        <li class="tech__item"><img src="icons/github.svg" alt="" aria-hidden="true" /><span>GitHub</span></li>
+        <li class="tech__item"><img src="icons/github actions.svg" alt="" aria-hidden="true" /><span>CI/CD (GitHub Actions)</span></li>
       </ul>
     </section>
 
-    <!-- ===== Contacts (отделён от технологий) ===== -->
     <section class="card contacts">
-      <!-- центрируем заголовок -->
       <h2 class="card__title card__title--center">Contacts</h2>
-
-      <!-- добавлен модификатор для центрирования ряда -->
       <div class="contacts__row contacts__row--center">
-        <a class="contact-btn" href="mailto:you@example.com" aria-label="Отправить письмо">
-          <img class="contact-btn__icon" src="/static/icons/email.svg" alt="" aria-hidden="true" />
-          <span>Email</span>
-        </a>
-        <a class="contact-btn" href="https://t.me/your_handle" target="_blank" rel="noopener" aria-label="Открыть Telegram">
-          <img class="contact-btn__icon" src="/static/icons/telegram.svg" alt="" aria-hidden="true" />
-          <span>Telegram</span>
-        </a>
-        <a class="contact-btn" href="https://www.linkedin.com/in/your-profile" target="_blank" rel="noopener" aria-label="Открыть LinkedIn">
-          <img class="contact-btn__icon" src="/static/icons/linkedin.svg" alt="" aria-hidden="true" />
-          <span>LinkedIn</span>
-        </a>
-        <!-- новый пункт GitHub -->
-        <a class="contact-btn" href="https://github.com/ArchilGelenidze" target="_blank" rel="noopener" aria-label="Открыть GitHub">
-          <img class="contact-btn__icon" src="/static/icons/github.svg" alt="" aria-hidden="true" />
-          <span>GitHub</span>
-        </a>
+        <a class="contact-btn" href="mailto:mainpost.ge@gmail.com"><img class="contact-btn__icon" src="icons/email.svg" alt="" aria-hidden="true" /><span>Email</span></a>
+        <a class="contact-btn" href="https://t.me/ArchilGe" target="_blank" rel="noopener"><img class="contact-btn__icon" src="icons/telegram.svg" alt="" aria-hidden="true" /><span>Telegram</span></a>
+        <a class="contact-btn" href="https://www.linkedin.com" target="_blank" rel="noopener"><img class="contact-btn__icon" src="icons/linkedin.svg" alt="" aria-hidden="true" /><span>LinkedIn</span></a>
+        <a class="contact-btn" href="https://github.com/ArchilGelenidze" target="_blank" rel="noopener"><img class="contact-btn__icon" src="icons/github.svg" alt="" aria-hidden="true" /><span>GitHub</span></a>
       </div>
     </section>
   </main>
 
   <footer class="footer">
     <div class="container footer__inner">
-      <small>© <span id="y"></span> Арчи — FastAPI Project</small>
+      <small>©<span id="y"></span> Archie — FastAPI Project</small>
     </div>
   </footer>
 
   <script>
-    // год в футере
     document.getElementById('y').textContent = new Date().getFullYear();
   </script>
 </body>

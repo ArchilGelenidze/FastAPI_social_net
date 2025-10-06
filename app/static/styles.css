@@ -1,328 +1,110 @@
-/* ===== CSS-переменные (палитра FastAPI-style + тёплые акценты) ===== */
 :root{
-  --bg: #0b1220;            /* общий тёмный фон */
-  --panel: #111827;         /* карточки */
-  --panel-2: #0e1726;       /* hero фон градиентом будет близок */
-  --text: #e5e7eb;
-  --muted: #9ca3af;
-
-  --teal: #009688;          /* основной акцент (FastAPI-like) */
-  --teal-2: #34d399;        /* ховер/вторичный акцент */
-  --border: #1f2937;
-
-  --mascot-accent: #F4A261; /* одежда маскота */
-  --card-border: #F4A261;   /* тонкий тёплый кант карточек */
-
-  --radius-lg: 16px;
-  --radius-sm: 12px;
-
-  --container: 1120px;
-
-  --fs-base: 18px;          /* базовый размер шрифта */
-  --lh: 1.65;
+  --bg:#0b1220;
+  --panel:#111827;
+  --text:#e5e7eb;
+  --muted:#9ca3af;
+  --teal:#009688;
+  --teal-2:#34d399;
+  --border:#1f2937;
+  --card-border:#F4A261;
+  --radius-lg:16px;
+  --radius-sm:12px;
+  --container:1120px;
+  --fs-base:18px;
+  --lh:1.65;
 }
 
-/* ===== Базовые стили ===== */
-* { box-sizing: border-box; }
-html, body { height: 100%; }
+*{box-sizing:border-box}
+html,body{height:100%}
 body{
-  margin:0;
-  background: var(--bg);
-  color: var(--text);
-  font: 500 var(--fs-base)/var(--lh) system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, Cantarell, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  margin:0;background:var(--bg);color:var(--text);
+  font:500 var(--fs-base)/var(--lh) system-ui,-apple-system,"Segoe UI",Roboto,Ubuntu,Cantarell,"Helvetica Neue",Arial,"Noto Sans","Liberation Sans",sans-serif;
+  -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale
 }
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
 
-img{ max-width:100%; display:block; }
-a{ color:inherit; text-decoration:none; }
+.container{width:100%;max-width:var(--container);margin-inline:auto;padding-inline:16px}
 
-/* ===== Layout ===== */
-.container{
-  width: 100%;
-  max-width: var(--container);
-  margin-inline: auto;
-  padding-inline: 16px;
-}
-
-/* ===== Topbar ===== */
 .topbar{
-  position: sticky; top: 0; z-index: 10;
-  background: linear-gradient(0deg, #0d1628, #0d1628) padding-box,
-              linear-gradient(180deg, transparent, rgba(255,255,255,.06)) border-box;
-  border-bottom: 1px solid var(--border);
+  position:sticky;top:0;z-index:10;
+  background:#0d1628;border-bottom:1px solid var(--border)
 }
-.topbar__inner{
-  display:flex; align-items:center; justify-content: space-between;
-  height: 64px;
-}
+.topbar__inner{display:flex;align-items:center;justify-content:space-between;height:64px}
+.topbar__inner--center{justify-content:center}
 .gh-btn{
-  display:inline-flex; align-items:center; gap:10px;
-  padding: 10px 14px;
-  background: #0f1c2f;
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
-  transition: transform .12s ease, border-color .12s ease, background .12s ease;
+  display:inline-flex;align-items:center;gap:10px;padding:10px 14px;
+  background:#0f1c2f;border:1px solid var(--border);border-radius:var(--radius-sm);
+  transition:transform .12s ease,border-color .12s ease,background .12s ease
 }
-.gh-btn__icon{ width:20px; height:20px; fill: var(--text); }
-.gh-btn:hover{
-  transform: translateY(-1px);
-  border-color: var(--teal-2);
-  background: #112238;
-}
-.gh-btn__text{ font-weight: 600; }
+.gh-btn__icon{width:20px;height:20px;fill:var(--text)}
+.gh-btn__text{font-weight:600}
+.gh-btn:hover{transform:translateY(-1px);border-color:var(--teal-2);background:#112238}
 
-/* ===== Hero ===== */
 .hero{
-  background: linear-gradient(180deg, #0f2330 0%, #0e1b2b 100%);
-  border-bottom: 1px solid var(--border);
+  background:linear-gradient(180deg,#0f2330 0%,#0e1b2b 100%);
+  border-bottom:1px solid var(--border)
 }
 .hero__inner{
-  display:grid;
-  grid-template-columns: 1.1fr .9fr;
-  gap: 24px;
-  align-items:center;
-  padding: 40px 0 28px;
+  display:grid;grid-template-columns:1.1fr .9fr;gap:24px;align-items:center;padding:40px 0 28px
 }
-.hero__title{
-  font-size: clamp(28px, 4vw, 44px);
-  line-height: 1.2;
-  margin: 0 0 8px 0;
-  font-weight: 800;
-  letter-spacing: .2px;
-}
-.hero__subtitle{
-  color: var(--muted);
-  margin: 0 0 18px 0;
-}
-.hero__actions{ display:flex; gap:12px; flex-wrap: wrap; }
-.btn{
-  display:inline-flex; align-items:center; justify-content:center;
-  padding: 10px 16px; border-radius: var(--radius-sm);
-  border: 1px solid var(--border);
-  font-weight: 700;
-}
-.btn--light{
-  background: var(--teal);
-  border-color: transparent;
-  color: #071218;
-}
-.btn--light:hover{ background: var(--teal-2); }
-.btn--ghost{
-  background: transparent;
-}
-.btn--ghost:hover{
-  border-color: var(--teal-2);
-  color: var(--teal-2);
-}
-.hero__mascot{
-  display:flex; align-items:flex-end; justify-content:center;
-}
-.hero__mascot img{
-  width: min(380px, 90%);
-  aspect-ratio: 1/1; object-fit: contain;
-  /* лёгкая тонировка одежды через фильтр, если захочешь — убери */
-}
+.hero__title{font-size:clamp(28px,4vw,44px);line-height:1.2;margin:0 0 8px;font-weight:800;letter-spacing:.2px}
+.hero__subtitle{color:var(--muted);margin:0 0 18px}
+.hero__actions{display:flex;gap:12px;flex-wrap:wrap}
+.hero__text--center{text-align:center}
+.hero__actions--center{display:flex;justify-content:center}
+.hero__mascot{display:flex;align-items:center;justify-content:center}
+.hero__mascot img{width:min(380px,90%);aspect-ratio:1/1;object-fit:contain}
 
-/* ===== Cards ===== */
 .card{
-  background: var(--panel);
-  border: 1px solid var(--card-border);
-  border-radius: 22px;
-  padding: 28px;
-  box-shadow: 0 6px 24px rgba(0,0,0,.25);
+  background:var(--panel);border:1px solid var(--card-border);border-radius:22px;
+  padding:28px;box-shadow:0 6px 24px rgba(0,0,0,.25)
 }
-.card + .card{ margin-top: 22px; }
+.card + .card{margin-top:22px}
+.card__title{font-size:clamp(22px,2.6vw,30px);font-weight:800;margin:0 0 18px}
+.card__title--center{text-align:center}
 
-.card__title{
-  font-size: clamp(22px, 2.6vw, 30px);
-  font-weight: 800;
-  margin: 0 0 18px 0;
-}
-
-/* ===== Technologies grid ===== */
 .tech__grid{
-  list-style: none;
-  margin: 0; padding: 0;
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0,1fr));
-  gap: 22px 18px;
+  list-style:none;margin:0;padding:0;
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px 18px
 }
 .tech__item{
-  display:flex; flex-direction: column; align-items:center; gap:10px;
-  text-align:center;
-  padding: 14px 10px;
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  background: #0f1724;
-  transition: border-color .12s ease, transform .12s ease;
+  display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center;
+  padding:14px 10px;border:1px solid var(--border);border-radius:var(--radius-lg);
+  background:#0f1724;transition:border-color .12s ease,transform .12s ease
 }
-.tech__item:hover{
-  border-color: var(--teal-2);
-  transform: translateY(-2px);
-}
-.tech__item img{
-  width: 44px; height: 44px; object-fit: contain;
-  filter: drop-shadow(0 1px 0 rgba(0,0,0,.25));
-}
-.tech__item span{
-  font-weight: 700;
-}
+.tech__item:hover{border-color:var(--teal-2);transform:translateY(-2px)}
+.tech__item img{width:44px;height:44px;object-fit:contain;filter:drop-shadow(0 1px 0 rgba(0,0,0,.25))}
+.tech__item span{font-weight:700}
 
-/* ===== Contacts (отделены визуально) ===== */
 .contacts{
-  background: linear-gradient(180deg, #0e1524 0%, #0f172a 100%);
-  border: 1px solid var(--border);
-  box-shadow: inset 0 0 0 1px rgba(244,162,97,.18), 0 6px 24px rgba(0,0,0,.25);
+  background:linear-gradient(180deg,#0e1524 0%,#0f172a 100%);
+  border:1px solid var(--border);
+  box-shadow:inset 0 0 0 1px rgba(244,162,97,.18),0 6px 24px rgba(0,0,0,.25)
 }
-.contacts__row{
-  display:flex; flex-wrap: wrap; gap: 12px;
-}
+.contacts__row{display:flex;flex-wrap:wrap;gap:12px}
+.contacts__row--center{justify-content:center}
 .contact-btn{
-  display:inline-flex; align-items:center; gap:10px;
-  padding: 12px 14px;
-  border-radius: var(--radius-sm);
-  border: 1px solid var(--border);
-  background: #0f1c2f;
-  transition: border-color .12s ease, transform .12s ease, background .12s ease;
+  display:inline-flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;
+  text-align:center;min-width:120px;padding:12px 14px;border-radius:var(--radius-sm);
+  border:1px solid var(--border);background:#0f1c2f;transition:border-color .12s ease,transform .12s ease,background .12s ease
 }
-.contact-btn:hover{
-  border-color: var(--teal-2);
-  background: #112238;
-  transform: translateY(-1px);
+.contact-btn:hover{border-color:var(--teal-2);background:#112238;transform:translateY(-1px)}
+.contact-btn__icon{width:22px;height:22px}
+
+.footer{border-top:1px solid var(--border);margin-top:28px}
+.footer__inner{height:64px;display:flex;align-items:center;justify-content:center;color:var(--muted)}
+
+@media (max-width:1024px){
+  .hero__inner{grid-template-columns:1fr;text-align:center;gap:16px}
+  .hero__actions{justify-content:center}
+  .hero__mascot{justify-content:center}
 }
-.contact-btn__icon{ width:20px; height:20px; }
-
-/* ===== Footer ===== */
-.footer{
-  border-top: 1px solid var(--border);
-  margin-top: 28px;
-}
-.footer__inner{
-  height: 64px;
-  display:flex; align-items:center; justify-content:center;
-  color: var(--muted);
-}
-
-/* ===== Responsive ===== */
-@media (max-width: 1024px){
-  .hero__inner{
-    grid-template-columns: 1fr;
-    text-align: center;
-    gap: 16px;
-  }
-  .hero__actions{ justify-content:center; }
-  .hero__mascot{ justify-content:center; }
-}
-
-@media (max-width: 640px){
-  .tech__grid{
-    grid-template-columns: repeat(2, minmax(0,1fr));
-  }
-  .gh-btn__text{ display:none; } /* на очень узких экранах оставим одну иконку */
-}
-
-/* ====== ДОБАВЛЕНО: точечные стили под твою задачу ====== */
-
-/* 1) центр заголовков карточек */
-.card__title--center { text-align: center; }
-
-/* 2) центр приветственного текста и кнопки */
-.hero__text--center { text-align: center; }
-.hero__actions--center { display: flex; justify-content: center; }
-
-/* 3) одна круглая кнопка-иконка Swagger */
-.btn--icon{
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  background: var(--teal);
-  border: 1px solid transparent;
-  transition: transform .12s ease, background .12s ease;
-}
-.btn--icon:hover{ background: var(--teal-2); transform: translateY(-1px); }
-.btn--icon img{ width: 32px; height: 32px; }
-
-/* 4) центрирование кнопок контактов и иконка над подписью */
-.contacts__row--center{ justify-content: center; } /* модификатор к уже существующему .contacts__row */
-
-.contact-btn{
-  flex-direction: column;      /* иконка сверху, подпись снизу */
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  min-width: 120px;
-  gap: 8px;
-}
-
-.contact-btn__icon{ width: 22px; height: 22px; } /* чуть компактнее иконки */
-
-/* крупнее ~2–3x */
-.btn--icon--xl {
-  width: 128px;   /* ~2.3x от 56px. Хочешь ровно 2x — поставь 112px; 3x — 168px */
-  height: 128px;
-}
-.btn--icon--xl img {
-  width: 64px;    /* 2x от 32px; подгони при желании */
-  height: 64px;
-}
-
-/* «чистая» версия без фона и обводки */
-.btn--icon--clean {
-  background: transparent;
-  border: none;
-  box-shadow: none;
-}
-.btn--icon--clean:hover {
-  background: transparent; /* перебиваем ховер у базового .btn--icon */
-  transform: scale(1.02);
-}
-
-/* если иконка теряется на тёмном фоне, можешь раскомментировать фильтр ниже */
-/* .btn--icon--clean img { filter: invert(1) brightness(1.2); } */
-
-.topbar__inner--center { justify-content: center; }
-
-
-/* styles.css — подпись под кнопкой Docs */
-.hero__docs{
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  gap:10px;
-}
-.hero__docs-label{
-  font-weight:700;
-  font-size:1.1rem;
-  opacity:.9;
-}
-
-/* Fix spacing + perfect centering for the "Docs" label under the icon */
-.hero__docs{
-  display: inline-grid;
-  justify-items: center;
-  gap: 0; /* override previous gap */
-}
-.hero__docs-label{
-  margin-top: 3px;  /* closer to the icon */
-  font-weight: 700;
-  line-height: 1.1;
-  text-align: center;
+@media (max-width:640px){
+  .tech__grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .gh-btn__text{display:none}
 }
 
 
-/* styles.css — чтобы иконка/надпись были по центру и близко друг к другу */
-.hero__docs{
-  display: inline-grid;
-  justify-items: center;
-  text-decoration: none;
-}
-.hero__docs-label{
-  margin-top: 6px;
-  font-weight: 700;
-  line-height: 1.1;
-  text-align: center;
-}
+.hero__docs{display:inline-grid;justify-items:center;text-decoration:none}
+.hero__docs-label{margin-top:6px;font-weight:700;line-height:1.1;text-align:center}
