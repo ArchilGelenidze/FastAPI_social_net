@@ -7,3 +7,4 @@ __pycache__/
 gunicorn.service
 nginx
 docker-compose-dev.yml
+.dockerignore
