@@ -9,8 +9,9 @@
   <meta property="og:title" content="FastAPI Project by Арчи" />
   <meta property="og:description" content="Стартовая страница проекта: технологии, swagger, ссылки и контакты." />
   <meta property="og:image" content="/static/img/og-image.png" />
+  <link rel="icon" type="image/svg+xml" href="/static/icons/fastapi.svg">
   <link rel="icon" href="/static/img/favicon.png" />
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="/static/styles.css" />
 </head>
 <body>
   <header class="topbar">
@@ -30,7 +31,7 @@
         <h1 class="hero__title">Welcome to my project</h1>
         <p class="hero__subtitle">A tiny FastAPI backend with simple docs.</p>
         <div class="hero__actions hero__actions--center">
-          <a class="hero__docs" href="https://www.agsocial.site/docs" aria-label="Open Swagger UI">
+          <a class="hero__docs" href="https://www.agsocial.site/docs" target=_blank aria-label="Open Swagger UI">
             <img src="https://cdn-icons-png.flaticon.com/512/887/887997.png" alt="Swagger" width="64" height="64" />
             <span class="hero__docs-label">Docs</span>
           </a>
@@ -38,7 +39,7 @@
       </div>
 
       <div class="hero__mascot">
-        <img src="img/mascot.png" alt="Приветственный маскот проекта" />
+        <img src="/static/img/mascot.png" alt="Приветственный маскот проекта" />
       </div>
     </div>
   </section>
@@ -47,32 +48,32 @@
     <section class="card tech">
       <h2 class="card__title card__title--center">Tools & Libraries</h2>
       <ul class="tech__grid">
-        <li class="tech__item"><img src="icons/python.svg" alt="" aria-hidden="true" /><span>Python</span></li>
-        <li class="tech__item"><img src="icons/fastapi.svg" alt="" aria-hidden="true" /><span>FastAPI</span></li>
-        <li class="tech__item"><img src="icons/postgresql.svg" alt="" aria-hidden="true" /><span>PostgreSQL</span></li>
-        <li class="tech__item"><img src="icons/sqlAlchemy.svg" alt="" aria-hidden="true" /><span>SQLAlchemy</span></li>
-        <li class="tech__item"><img src="icons/alembic.svg" alt="" aria-hidden="true" /><span>Alembic</span></li>
-        <li class="tech__item"><img src="icons/pydantic.svg" alt="" aria-hidden="true" /><span>Pydantic</span></li>
-        <li class="tech__item"><img src="icons/nginx.svg" alt="" aria-hidden="true" /><span>Nginx</span></li>
-        <li class="tech__item"><img src="icons/uvicorn.png" alt="" aria-hidden="true" /><span>Uvicorn</span></li>
-        <li class="tech__item"><img src="icons/gunicorn.svg" alt="" aria-hidden="true" /><span>Gunicorn</span></li>
-        <li class="tech__item"><img src="icons/pytest.svg" alt="" aria-hidden="true" /><span>Pytest</span></li>
-        <li class="tech__item"><img src="icons/Postman.svg" alt="" aria-hidden="true" /><span>Postman</span></li>
-        <li class="tech__item"><img src="icons/docker.svg" alt="" aria-hidden="true" /><span>Docker</span></li>
-        <li class="tech__item"><img src="icons/compose.png" alt="" aria-hidden="true" /><span>Docker Compose</span></li>
-        <li class="tech__item"><img src="icons/ubuntu.svg" alt="" aria-hidden="true" /><span>Ubuntu</span></li>
-        <li class="tech__item"><img src="icons/github.svg" alt="" aria-hidden="true" /><span>GitHub</span></li>
-        <li class="tech__item"><img src="icons/github actions.svg" alt="" aria-hidden="true" /><span>CI/CD (GitHub Actions)</span></li>
+        <li class="tech__item"><img src="/static/icons/python.svg" alt="" aria-hidden="true" /><span>Python</span></li>
+        <li class="tech__item"><img src="/static/icons/fastapi.svg" alt="" aria-hidden="true" /><span>FastAPI</span></li>
+        <li class="tech__item"><img src="/static/icons/postgresql.svg" alt="" aria-hidden="true" /><span>PostgreSQL</span></li>
+        <li class="tech__item"><img src="/static/icons/sqlAlchemy.svg" alt="" aria-hidden="true" /><span>SQLAlchemy</span></li>
+        <li class="tech__item"><img src="/static/icons/alembic.svg" alt="" aria-hidden="true" /><span>Alembic</span></li>
+        <li class="tech__item"><img src="/static/icons/pydantic.svg" alt="" aria-hidden="true" /><span>Pydantic</span></li>
+        <li class="tech__item"><img src="/static/icons/nginx.svg" alt="" aria-hidden="true" /><span>Nginx</span></li>
+        <li class="tech__item"><img src="/static/icons/uvicorn.png" alt="" aria-hidden="true" /><span>Uvicorn</span></li>
+        <li class="tech__item"><img src="/static/icons/gunicorn.svg" alt="" aria-hidden="true" /><span>Gunicorn</span></li>
+        <li class="tech__item"><img src="/static/icons/pytest.svg" alt="" aria-hidden="true" /><span>Pytest</span></li>
+        <li class="tech__item"><img src="/static/icons/Postman.svg" alt="" aria-hidden="true" /><span>Postman</span></li>
+        <li class="tech__item"><img src="/static/icons/docker.svg" alt="" aria-hidden="true" /><span>Docker</span></li>
+        <li class="tech__item"><img src="/static/icons/compose.png" alt="" aria-hidden="true" /><span>Docker Compose</span></li>
+        <li class="tech__item"><img src="/static/icons/ubuntu.svg" alt="" aria-hidden="true" /><span>Ubuntu</span></li>
+        <li class="tech__item"><img src="/static/icons/github.svg" alt="" aria-hidden="true" /><span>GitHub</span></li>
+        <li class="tech__item"><img src="/static/icons/github-actions.svg" alt="" aria-hidden="true" /><span>CI/CD (GitHub Actions)</span></li>
       </ul>
     </section>
 
     <section class="card contacts">
       <h2 class="card__title card__title--center">Contacts</h2>
       <div class="contacts__row contacts__row--center">
-        <a class="contact-btn" href="mailto:mainpost.ge@gmail.com"><img class="contact-btn__icon" src="icons/email.svg" alt="" aria-hidden="true" /><span>Email</span></a>
-        <a class="contact-btn" href="https://t.me/ArchilGe" target="_blank" rel="noopener"><img class="contact-btn__icon" src="icons/telegram.svg" alt="" aria-hidden="true" /><span>Telegram</span></a>
-        <a class="contact-btn" href="https://www.linkedin.com" target="_blank" rel="noopener"><img class="contact-btn__icon" src="icons/linkedin.svg" alt="" aria-hidden="true" /><span>LinkedIn</span></a>
-        <a class="contact-btn" href="https://github.com/ArchilGelenidze" target="_blank" rel="noopener"><img class="contact-btn__icon" src="icons/github.svg" alt="" aria-hidden="true" /><span>GitHub</span></a>
+        <a class="contact-btn" href="mailto:mainpost.ge@gmail.com"><img class="contact-btn__icon" src="/static/icons/email.svg" alt="" aria-hidden="true" /><span>Email</span></a>
+        <a class="contact-btn" href="https://t.me/ArchilGe" target="_blank" rel="noopener"><img class="contact-btn__icon" src="/static/icons/telegram.svg" alt="" aria-hidden="true" /><span>Telegram</span></a>
+        <a class="contact-btn" href="https://www.linkedin.com" target="_blank" rel="noopener"><img class="contact-btn__icon" src="/static/icons/linkedin.svg" alt="" aria-hidden="true" /><span>LinkedIn</span></a>
+        <a class="contact-btn" href="https://github.com/ArchilGelenidze" target="_blank" rel="noopener"><img class="contact-btn__icon" src="/static/icons/github.svg" alt="" aria-hidden="true" /><span>GitHub</span></a>
       </div>
     </section>
   </main>
