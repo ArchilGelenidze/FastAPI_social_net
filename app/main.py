@@ -11,7 +11,7 @@ from fastapi.responses import FileResponse
 
 app = FastAPI()
 
-app.mount("/static", StaticFiles(directory="static"), name="static")
+app.mount("/static", StaticFiles(directory="app/static"), name="static")
 
 origins = ["*"]
 
