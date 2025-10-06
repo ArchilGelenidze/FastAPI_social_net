@@ -1,17 +1,18 @@
 from fastapi import FastAPI
-from . import models
-from .database import engine
-from .routers import post, user, auth, vote
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
-    
+from fastapi.staticfiles import StaticFiles
+
+from .config_paths import STATIC_DIR
+from .database import engine
+from .routers import auth, post, user, vote
+
 
 # models.Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
 
-app.mount("/static", StaticFiles(directory="app/static"), name="static")
+app.mount("/static", StaticFiles(directory=STATIC_DIR), name="static")
 
 origins = ["*"]
 
@@ -30,5 +31,4 @@ app.include_router(vote.router)
 
 @app.get("/", include_in_schema=False)
 async def root():
-    return FileResponse("static/index.html")
-
+    return FileResponse(STATIC_DIR / "index.html")
